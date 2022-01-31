@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schema xmlns="http://www.w3.org/2001/XMLSchema"
-    targetNamespace="http://www.journaldev.com/com/journaldev/employee/data"
-    xmlns:empns="http://www.journaldev.com/com/journaldev/employee/data"
+    targetNamespace="http://www.cleverdeveloper.com/com/cleverdeveloper/employee/data"
+    xmlns:empns="http://www.cleverdeveloper.com/com/cleverdeveloper/employee/data"
     elementFormDefault="qualified">
  
     <element name="empRequest" type="empns:EmpRequest"></element>
