@@ -55,5 +55,15 @@ public class CustomerOrderWebServiceClient {
         CreateOrdersResponse createOrdersResponse = customerOrdersPortType.createOrders(createOrdersRequest);
         System.out.println(colorize("Order created ? " + createOrdersResponse.isResult(), BOLD(), textColor, backgroundColor));
         /* #### Ending #### Creating Orders Requests #### Ending #### */
+
+        /* #### Starting #### Deleting Orders Requests #### Starting #### */
+        DeleteOrdersRequest deleteOrdersRequest = new DeleteOrdersRequest();
+        deleteOrdersRequest.setCustomerId(BigInteger.valueOf(1));
+        deleteOrdersRequest.setOrderId(BigInteger.valueOf(2));
+
+        DeleteOrdersResponse deleteOrdersResponse = customerOrdersPortType.deleteOrders(deleteOrdersRequest);
+        System.out.println(colorize("Order deleted ? " + deleteOrdersResponse.isResult(), BOLD(), textColor, backgroundColor));
+
+        /* #### Ending #### Deleting Orders Requests #### Ending #### */
     }
 }
