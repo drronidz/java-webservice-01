@@ -49,6 +49,21 @@ public class CustomerOrdersWebServiceImpl implements CustomerOrdersPortType {
     }
 
     @Override
+    public DeleteOrdersResponse deleteOrders(DeleteOrdersRequest request) {
+        BigInteger customerId = request.getCustomerId();
+        BigInteger orderId = request.getOrderId();
+
+        List<Order> orders = customerOrders.get(customerId);
+
+        orders.removeIf(order -> order.getId().compareTo(orderId) == 0);
+
+        DeleteOrdersResponse response = new DeleteOrdersResponse();
+        response.setResult(true);
+
+        return response;
+    }
+
+    @Override
     public GetOrdersResponse getOrders(GetOrdersRequest request) {
         BigInteger customerId = request.getCustomerId();
         List<Order> orders = customerOrders.get(customerId);
