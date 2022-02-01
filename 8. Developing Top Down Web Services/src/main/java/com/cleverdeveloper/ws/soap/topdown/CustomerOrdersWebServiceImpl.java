@@ -8,13 +8,17 @@ DATE : 01/02/2022 21:18
 */
 
 import com.cleverdeveloper.ws.trainings.*;
+import org.apache.cxf.feature.Features;
 
+import javax.jws.WebService;
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+
+@Features(features = "org.apache.cxf.feature.LoggingFeature")
 public class CustomerOrdersWebServiceImpl implements CustomerOrdersPortType {
 
     Map<BigInteger, List<Order>> customerOrders = new HashMap<>();
