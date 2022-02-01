@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="5a0f578a-b4b0-416a-a73f-9dbd8da5c0df" activeEnvironment="Default" name="helloWorldWebService" resourceRoot="" soapui-version="5.7.0" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="806908da-9158-4f0d-8634-a99200925c23" wsaVersion="NONE" name="HelloWorldWebServiceServiceSoapBinding" type="wsdl" bindingName="{http://webservice.soap.cleverdeveloper.com/}HelloWorldWebServiceServiceSoapBinding" soapVersion="1_1" anonymous="optional" definition="http://localhost:8080/hellowebservice/hello?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:8080/hellowebservice/hello?wsdl"><con:part><con:url>http://localhost:8080/hellowebservice/hello?wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="HelloWorldWebServiceService" targetNamespace="http://webservice.soap.cleverdeveloper.com/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://webservice.soap.cleverdeveloper.com/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http">
+  <wsdl:types>
+    <xs:schema elementFormDefault="unqualified" targetNamespace="http://webservice.soap.cleverdeveloper.com/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="sayHelloWorld" type="tns:sayHelloWorld"/>
+      <xs:element name="sayHelloWorldResponse" type="tns:sayHelloWorldResponse"/>
+      <xs:complexType name="sayHelloWorld">
+        <xs:sequence/>
+      </xs:complexType>
+      <xs:complexType name="sayHelloWorldResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="sayHelloWorldResponse">
+    <wsdl:part element="tns:sayHelloWorldResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="sayHelloWorld">
+    <wsdl:part element="tns:sayHelloWorld" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="HelloWorldWebService">
+    <wsdl:operation name="sayHelloWorld">
+      <wsdl:input message="tns:sayHelloWorld" name="sayHelloWorld"></wsdl:input>
+      <wsdl:output message="tns:sayHelloWorldResponse" name="sayHelloWorldResponse"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="HelloWorldWebServiceServiceSoapBinding" type="tns:HelloWorldWebService">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="sayHelloWorld">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="sayHelloWorld">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="sayHelloWorldResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="HelloWorldWebServiceService">
+    <wsdl:port binding="tns:HelloWorldWebServiceServiceSoapBinding" name="HelloWorldWebServicePort">
+      <soap:address location="http://localhost:8080/hellowebservice/hello"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8080/hellowebservice/hello</con:endpoint></con:endpoints><con:operation id="3c167e1c-3e57-4fd5-82a0-e5b98164ee06" isOneWay="false" action="" name="sayHelloWorld" bindingOperationName="sayHelloWorld" type="Request-Response" outputName="sayHelloWorldResponse" inputName="sayHelloWorld" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="eedb3253-33b0-472a-9dbf-1ab75bf8e1ef" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/hellowebservice/hello</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://webservice.soap.cleverdeveloper.com/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <web:sayHelloWorld/>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://webservice.soap.cleverdeveloper.com/HelloWorldWebService/sayHelloWorld"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>
