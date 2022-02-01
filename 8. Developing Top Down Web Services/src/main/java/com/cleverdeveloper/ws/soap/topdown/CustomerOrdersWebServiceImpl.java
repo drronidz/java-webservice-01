@@ -56,7 +56,16 @@ public class CustomerOrdersWebServiceImpl implements CustomerOrdersPortType {
     }
 
     @Override
-    public CreateOrdersResponse createOrders(CreateOrdersRequest parameters) {
-        return null;
+    public CreateOrdersResponse createOrders(CreateOrdersRequest request) {
+        BigInteger customerId = request.getCustomerId();
+        Order order = request.getOrder();
+
+        List<Order> orders = customerOrders.get(customerId);
+        orders.add(order);
+
+        CreateOrdersResponse response = new CreateOrdersResponse();
+        response.setResult(true);
+
+        return response;
     }
 }
