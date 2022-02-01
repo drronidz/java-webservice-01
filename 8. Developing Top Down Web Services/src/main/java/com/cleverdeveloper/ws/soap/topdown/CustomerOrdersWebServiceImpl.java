@@ -42,12 +42,17 @@ public class CustomerOrdersWebServiceImpl implements CustomerOrdersPortType {
         orders.add(order);
 
         customerOrders.put(BigInteger.valueOf(++currentId), orders);
-
     }
 
     @Override
-    public GetOrdersResponse getOrders(GetOrdersRequest parameters) {
-        return null;
+    public GetOrdersResponse getOrders(GetOrdersRequest request) {
+        BigInteger customerId = request.getCustomerId();
+        List<Order> orders = customerOrders.get(customerId);
+
+        GetOrdersResponse response = new GetOrdersResponse();
+        response.getOrder().addAll(orders);
+
+        return response;
     }
 
     @Override
