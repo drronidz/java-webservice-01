@@ -17,10 +17,10 @@ import java.io.IOException;
 public class UTPasswordCallBack implements CallbackHandler {
     @Override
     public void handle(Callback[] callbacks) throws IOException, UnsupportedCallbackException {
-        for (Callback callback: callbacks) {
-            WSPasswordCallback wsPasswordCallback = (WSPasswordCallback) callback;
-            if(wsPasswordCallback.equals("cxf")) {
-                wsPasswordCallback.setPassword("cxf");
+        for (int i = 0; i < callbacks.length; i++) {
+            WSPasswordCallback wsPasswordCallback = (WSPasswordCallback) callbacks[i];
+            if (wsPasswordCallback.getIdentifier().equals("cleverdeveloper")) {
+                wsPasswordCallback.setPassword("drronidz@12041994");
             }
         }
     }

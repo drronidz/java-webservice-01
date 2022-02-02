@@ -41,7 +41,7 @@ public class PaymentWebServiceClient {
 
         Map<String, Object> props = new HashMap<>();
         props.put(WSHandlerConstants.ACTION, WSHandlerConstants.USERNAME_TOKEN);
-        props.put(WSHandlerConstants.USER, "cxf");
+        props.put(WSHandlerConstants.USER, "cleverdeveloper");
         props.put(WSHandlerConstants.PASSWORD_TYPE, WSConstants.PW_TEXT);
         props.put(WSHandlerConstants.PW_CALLBACK_CLASS, UTPasswordCallBack.class.getName());
 
