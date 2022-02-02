@@ -10,9 +10,10 @@ DATE : 02/02/2022 23:31
 import javax.activation.DataHandler;
 import javax.jws.WebParam;
 import javax.jws.WebService;
+import java.io.IOException;
 
 @WebService
 public interface FileWebService {
-    void upload(@WebParam(name = "file") DataHandler attachment);
+    void upload(@WebParam(name = "file") DataHandler attachment) throws IOException;
     DataHandler download();
 }
