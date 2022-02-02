@@ -12,10 +12,16 @@ import com.cleverdeveloper.soap.ws.PaymentProcessorImplService;
 import com.cleverdeveloper.soap.ws.PaymentProcessorRequest;
 import com.cleverdeveloper.soap.ws.PaymentProcessorResponse;
 import com.diogonunes.jcolor.Attribute;
+import org.apache.cxf.endpoint.Client;
+import org.apache.cxf.endpoint.Endpoint;
+import org.apache.cxf.frontend.ClientProxy;
+import org.apache.cxf.ws.security.wss4j.WSS4JOutInterceptor;
 
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.HashMap;
+import java.util.Map;
 
 import static com.diogonunes.jcolor.Ansi.colorize;
 import static com.diogonunes.jcolor.Attribute.*;
@@ -28,6 +34,12 @@ public class PaymentWebServiceClient {
 
         PaymentProcessorImplService service = new PaymentProcessorImplService(new URL("http://localhost:8080/javafirstws/paymentProcessor?wsdl"));
         PaymentProcessor port = service.getPaymentProcessorImplPort();
+        Client client = ClientProxy.getClient(port);
+        Endpoint endpoint = client.getEndpoint();
+
+        Map<String, Object> props = new HashMap<>();
+        WSS4JOutInterceptor outInterceptor = new WSS4JOutInterceptor(props);
+        endpoint.getOutInterceptors().add(outInterceptor);
 
         PaymentProcessorResponse response = port.processPayment(new PaymentProcessorRequest());
         System.out.println(colorize("is request send ? " +response.isResult(), BOLD(), textColor, backgroundColor));
