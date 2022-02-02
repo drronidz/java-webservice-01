@@ -43,6 +43,8 @@ public class PaymentWebServiceClient {
         props.put(WSHandlerConstants.ACTION, WSHandlerConstants.USERNAME_TOKEN);
         props.put(WSHandlerConstants.USER, "cxf");
         props.put(WSHandlerConstants.PASSWORD_TYPE, WSConstants.PW_TEXT);
+        props.put(WSHandlerConstants.PW_CALLBACK_CLASS, UTPasswordCallBack.class.getName());
+
 
         WSS4JOutInterceptor outInterceptor = new WSS4JOutInterceptor(props);
         endpoint.getOutInterceptors().add(outInterceptor);
