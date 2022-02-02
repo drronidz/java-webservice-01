@@ -11,8 +11,18 @@ import javax.security.auth.callback.Callback;
 import javax.security.auth.callback.CallbackHandler;
 import javax.security.auth.callback.UnsupportedCallbackException;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 public class UTPasswordCallBack implements CallbackHandler {
+
+    private Map<String, String> usernamesPasswords = new HashMap<>();
+
+    public UTPasswordCallBack() {
+        usernamesPasswords.put("cleverdeveloper", "drronidz@12041994");
+        usernamesPasswords.put("javaguru", "abdou@12041994");
+    }
+
     @Override
     public void handle(Callback[] callbacks) throws IOException, UnsupportedCallbackException {
 
