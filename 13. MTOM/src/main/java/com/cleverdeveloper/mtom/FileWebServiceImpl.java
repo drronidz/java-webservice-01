@@ -8,6 +8,7 @@ DATE : 02/02/2022 23:46
 */
 
 import javax.activation.DataHandler;
+import javax.activation.FileDataSource;
 import java.io.*;
 
 public class FileWebServiceImpl implements FileWebService{
@@ -26,6 +27,8 @@ public class FileWebServiceImpl implements FileWebService{
 
     @Override
     public DataHandler download() {
-        return null;
+        return new DataHandler(
+                new FileDataSource(
+                        new File("C:/Users/DRRONIDZ/IdeaProjects/Java Vanilla/java-webservice-01/13. MTOM/uploaded/spring.jpg")));
     }
 }
