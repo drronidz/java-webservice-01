@@ -1,9 +1,18 @@
 package com.cleverdeveloper.soap.ws.dto;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlType;
 
+@XmlType(name="PaymentProcessorRequest")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class PaymentProcessorRequest {
 
+	@XmlElement(name = "creditCardInfo", required = true)
 	private CreditCardInfo creditCardInfo;
+
+	@XmlElement(name = "amount")
 	private Double amount;
 
 	public CreditCardInfo getCreditCardInfo() {

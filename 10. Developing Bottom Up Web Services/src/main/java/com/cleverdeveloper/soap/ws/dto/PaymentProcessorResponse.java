@@ -1,5 +1,11 @@
 package com.cleverdeveloper.soap.ws.dto;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlType;
+
+@XmlType(name="PaymentProcessorResponse")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class PaymentProcessorResponse {
 
 	private boolean result;
