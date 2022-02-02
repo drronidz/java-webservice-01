@@ -10,11 +10,14 @@ DATE : 01/02/2022 12:32
 import com.cleverdeveloper.soap.ws.PaymentProcessorImpl;
 import org.apache.cxf.Bus;
 import org.apache.cxf.jaxws.EndpointImpl;
+import org.apache.cxf.ws.security.wss4j.WSS4JInInterceptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import javax.xml.ws.Endpoint;
+import java.util.HashMap;
+import java.util.Map;
 
 @Configuration
 public class WebServiceConfig {
@@ -25,9 +28,18 @@ public class WebServiceConfig {
     @Bean
     public Endpoint endpoint() {
         // Make sure that you're importing the right Endpoint class
-        Endpoint endpoint = new EndpointImpl(bus, new PaymentProcessorImpl());
+        EndpointImpl endpoint = new EndpointImpl(bus, new PaymentProcessorImpl());
         // this endpoint is available at the particular URL : /hello
         endpoint.publish("/paymentProcessor");
+
+        // Configuring the Interceptors ...
+        // InInterceptor : to handle the incoming request ...
+        // OutInterceptor: to handle the out coming request ...
+        Map<String, Object> hashMap = new HashMap<>();
+
+        WSS4JInInterceptor inInterceptor = new WSS4JInInterceptor(hashMap);
+        endpoint.getInInterceptors().add(inInterceptor);
+
         return endpoint;
     }
 }
