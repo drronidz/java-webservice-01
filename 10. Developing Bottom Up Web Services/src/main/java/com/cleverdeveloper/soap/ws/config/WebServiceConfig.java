@@ -27,7 +27,7 @@ public class WebServiceConfig {
         // Make sure that you're importing the right Endpoint class
         Endpoint endpoint = new EndpointImpl(bus, new PaymentProcessorImpl());
         // this endpoint is available at the particular URL : /hello
-        endpoint.publish("/hello");
+        endpoint.publish("/paymentProcessor");
         return endpoint;
     }
 }
