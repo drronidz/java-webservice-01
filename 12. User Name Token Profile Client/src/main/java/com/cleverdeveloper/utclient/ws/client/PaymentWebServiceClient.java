@@ -16,6 +16,8 @@ import org.apache.cxf.endpoint.Client;
 import org.apache.cxf.endpoint.Endpoint;
 import org.apache.cxf.frontend.ClientProxy;
 import org.apache.cxf.ws.security.wss4j.WSS4JOutInterceptor;
+import org.apache.wss4j.dom.WSConstants;
+import org.apache.wss4j.dom.handler.WSHandlerConstants;
 
 
 import java.net.MalformedURLException;
@@ -38,6 +40,10 @@ public class PaymentWebServiceClient {
         Endpoint endpoint = client.getEndpoint();
 
         Map<String, Object> props = new HashMap<>();
+        props.put(WSHandlerConstants.ACTION, WSHandlerConstants.USERNAME_TOKEN);
+        props.put(WSHandlerConstants.USER, "cxf");
+        props.put(WSHandlerConstants.PASSWORD_TYPE, WSConstants.PW_TEXT);
+
         WSS4JOutInterceptor outInterceptor = new WSS4JOutInterceptor(props);
         endpoint.getOutInterceptors().add(outInterceptor);
 
