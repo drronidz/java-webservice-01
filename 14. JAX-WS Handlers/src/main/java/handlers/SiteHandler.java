@@ -23,6 +23,7 @@ import static com.diogonunes.jcolor.Attribute.BACK_COLOR;
 
 public class SiteHandler implements SOAPHandler<SOAPMessageContext> {
 
+
     Attribute backgroundColorHandleMessage = BACK_COLOR(39, 179, 118);
     Attribute backgroundColorGetHeaders = BACK_COLOR(85,107,47);
     Attribute backgroundColorHandleFault = BACK_COLOR(255,0,0);
