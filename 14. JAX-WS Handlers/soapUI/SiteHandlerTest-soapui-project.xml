@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="a969b94e-0ea2-427b-9f0d-dd55ef98fd78" activeEnvironment="Default" name="SiteHandlerTest" resourceRoot="" soapui-version="5.7.0" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="1fa56e41-5118-44d3-9444-07f54268a43d" wsaVersion="NONE" name="CustomerOrdersWebServiceImplServiceSoapBinding" type="wsdl" bindingName="{http://topdown.soap.ws.cleverdeveloper.com/}CustomerOrdersWebServiceImplServiceSoapBinding" soapVersion="1_1" anonymous="optional" definition="http://localhost:8080/wsdlfirstwebservice/customerordersservice?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:8080/wsdlfirstwebservice/customerordersservice?wsdl"><con:part><con:url>http://localhost:8080/wsdlfirstwebservice/customerordersservice?wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="CustomerOrdersWebServiceImplService" targetNamespace="http://topdown.soap.ws.cleverdeveloper.com/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://topdown.soap.ws.cleverdeveloper.com/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns2="http://schemas.xmlsoap.org/soap/http" xmlns:ns1="http://trainings.ws.cleverdeveloper.com/">
+  <wsdl:import location="http://localhost:8080/wsdlfirstwebservice/customerordersservice?wsdl=CustomerOrdersPortType.wsdl" namespace="http://trainings.ws.cleverdeveloper.com/"></wsdl:import>
+  <wsdl:binding name="CustomerOrdersWebServiceImplServiceSoapBinding" type="ns1:CustomerOrdersPortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="deleteOrders">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="deleteOrders">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="deleteOrdersResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createOrders">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="createOrders">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="createOrdersResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getOrders">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getOrders">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getOrdersResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CustomerOrdersWebServiceImplService">
+    <wsdl:port binding="tns:CustomerOrdersWebServiceImplServiceSoapBinding" name="CustomerOrdersWebServiceImplPort">
+      <soap:address location="http://localhost:8080/wsdlfirstwebservice/customerordersservice"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part><con:part><con:url>http://localhost:8080/wsdlfirstwebservice/customerordersservice?wsdl=CustomerOrdersPortType.wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="CustomerOrdersPortType" targetNamespace="http://trainings.ws.cleverdeveloper.com/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ns1="http://trainings.ws.cleverdeveloper.com/">
+  <wsdl:types>
+    <xs:schema targetNamespace="http://trainings.ws.cleverdeveloper.com/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://trainings.ws.cleverdeveloper.com/">
+      <xs:element name="createOrdersRequest" type="tns:createOrdersRequest"/>
+      <xs:element name="createOrdersResponse" type="tns:createOrdersResponse"/>
+      <xs:element name="deleteOrdersRequest" type="tns:deleteOrdersRequest"/>
+      <xs:element name="deleteOrdersResponse" type="tns:deleteOrdersResponse"/>
+      <xs:element name="getOrdersRequest" type="tns:getOrdersRequest"/>
+      <xs:element name="getOrdersResponse" type="tns:getOrdersResponse"/>
+      <xs:complexType name="deleteOrdersRequest">
+        <xs:sequence>
+          <xs:element name="customerId" type="xs:integer"/>
+          <xs:element name="orderId" type="xs:integer"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="deleteOrdersResponse">
+        <xs:sequence>
+          <xs:element name="result" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="createOrdersRequest">
+        <xs:sequence>
+          <xs:element name="customerId" type="xs:integer"/>
+          <xs:element name="order" type="tns:order"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="order">
+        <xs:sequence>
+          <xs:element name="id" type="xs:integer"/>
+          <xs:element maxOccurs="unbounded" name="product" type="tns:product"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="product">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="id" type="xs:string"/>
+          <xs:element minOccurs="0" name="description" type="xs:string"/>
+          <xs:element minOccurs="0" name="quantity" type="xs:integer"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="createOrdersResponse">
+        <xs:sequence>
+          <xs:element name="result" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getOrdersRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="customerId" type="xs:integer"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getOrdersResponse">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="order" nillable="true" type="tns:order"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="deleteOrders">
+    <wsdl:part element="ns1:deleteOrdersRequest" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getOrders">
+    <wsdl:part element="ns1:getOrdersRequest" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getOrdersResponse">
+    <wsdl:part element="ns1:getOrdersResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="deleteOrdersResponse">
+    <wsdl:part element="ns1:deleteOrdersResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="createOrders">
+    <wsdl:part element="ns1:createOrdersRequest" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="createOrdersResponse">
+    <wsdl:part element="ns1:createOrdersResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="CustomerOrdersPortType">
+    <wsdl:operation name="deleteOrders">
+      <wsdl:input message="ns1:deleteOrders" name="deleteOrders"></wsdl:input>
+      <wsdl:output message="ns1:deleteOrdersResponse" name="deleteOrdersResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createOrders">
+      <wsdl:input message="ns1:createOrders" name="createOrders"></wsdl:input>
+      <wsdl:output message="ns1:createOrdersResponse" name="createOrdersResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getOrders">
+      <wsdl:input message="ns1:getOrders" name="getOrders"></wsdl:input>
+      <wsdl:output message="ns1:getOrdersResponse" name="getOrdersResponse"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8080/wsdlfirstwebservice/customerordersservice</con:endpoint></con:endpoints><con:operation id="6a547d04-b431-4f69-8f0b-fff728be301b" isOneWay="false" action="" name="createOrders" bindingOperationName="createOrders" type="Request-Response" outputName="createOrdersResponse" inputName="createOrders" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="8c48ef44-0ef9-4792-b7ce-33c62c60032a" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/wsdlfirstwebservice/customerordersservice</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tra="http://trainings.ws.cleverdeveloper.com/">\r
+   <soapenv:Header >
+   	<SiteName>
+   			Amazon
+   	 </SiteName>
+   </soapenv:Header>\r
+   <soapenv:Body>\r
+      <tra:createOrdersRequest>\r
+         <customerId>1</customerId>\r
+         <order>\r
+            <id>1234</id>\r
+            <!--1 or more repetitions:-->\r
+            <product>\r
+               <!--Optional:-->\r
+               <id>890</id>\r
+               <!--Optional:-->\r
+               <description>Microsoft Surface</description>\r
+               <!--Optional:-->\r
+               <quantity>4</quantity>\r
+            </product>\r
+         </order>\r
+      </tra:createOrdersRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://topdown.soap.ws.cleverdeveloper.com/CustomerOrdersPortType/createOrders"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="3246f026-2663-4292-b89b-a7518bfad9bc" isOneWay="false" action="" name="deleteOrders" bindingOperationName="deleteOrders" type="Request-Response" outputName="deleteOrdersResponse" inputName="deleteOrders" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="46b58176-33f1-43c3-a1bb-c3f7f9cb2245" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/wsdlfirstwebservice/customerordersservice</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tra="http://trainings.ws.cleverdeveloper.com/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <tra:deleteOrdersRequest>\r
+         <customerId>?</customerId>\r
+         <orderId>?</orderId>\r
+      </tra:deleteOrdersRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://topdown.soap.ws.cleverdeveloper.com/CustomerOrdersPortType/deleteOrders"/></con:call></con:operation><con:operation id="844425ce-0c89-4c56-b182-3fc3eda7d27e" isOneWay="false" action="" name="getOrders" bindingOperationName="getOrders" type="Request-Response" outputName="getOrdersResponse" inputName="getOrders" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="3c3e1b94-f3ff-4bb6-be14-dd7037b6524f" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/wsdlfirstwebservice/customerordersservice</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tra="http://trainings.ws.cleverdeveloper.com/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <tra:getOrdersRequest>\r
+         <!--Optional:-->\r
+         <customerId>?</customerId>\r
+      </tra:getOrdersRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://topdown.soap.ws.cleverdeveloper.com/CustomerOrdersPortType/getOrders"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>
