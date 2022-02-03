@@ -33,6 +33,7 @@ public class SiteHandler implements SOAPHandler<SOAPMessageContext> {
 
     @Override
     public Set<QName> getHeaders() {
+        // Should be implemented if the header of SOAP request message contains the attribute mustUnderstand = (value = 0 || 1)
         System.out.println(colorize("getHeaders", BOLD(), textColor, backgroundColorGetHeaders));
         return null;
     }

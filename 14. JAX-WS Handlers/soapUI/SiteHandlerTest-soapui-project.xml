@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tra="http://trainings.ws.cleverdeveloper.com/">
    <soapenv:Header>
-   	<SiteName>
+   	<SiteName mustUnderstand="1">
    			Amazon
    	 </SiteName>
    </soapenv:Header>
