@@ -34,17 +34,6 @@ public class WebServiceConfig {
         // this endpoint is available at the particular URL : /hello
         endpoint.publish("/paymentProcessor");
 
-        // Configuring the Interceptors ...
-        // InInterceptor : to handle the incoming request ...
-        // OutInterceptor: to handle the out coming request ...
-        Map<String, Object> inProps = new HashMap<>();
-        inProps.put(ConfigurationConstants.ACTION, ConfigurationConstants.USERNAME_TOKEN);
-        inProps.put(ConfigurationConstants.PASSWORD_TYPE, WSConstants.PW_TEXT);
-        inProps.put(ConfigurationConstants.PW_CALLBACK_CLASS, UTPasswordCallBack.class.getName());
-
-        WSS4JInInterceptor inInterceptor = new WSS4JInInterceptor(inProps);
-        endpoint.getInInterceptors().add(inInterceptor);
-
         return endpoint;
     }
 }
