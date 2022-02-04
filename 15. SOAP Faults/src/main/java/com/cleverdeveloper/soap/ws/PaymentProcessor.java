@@ -3,6 +3,7 @@ package com.cleverdeveloper.soap.ws;
 
 import com.cleverdeveloper.soap.ws.dto.PaymentProcessorRequest;
 import com.cleverdeveloper.soap.ws.dto.PaymentProcessorResponse;
+import com.cleverdeveloper.soap.ws.exceptions.ServiceException;
 
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
@@ -16,5 +17,5 @@ public interface PaymentProcessor {
 	public @WebResult(name="response")
 	PaymentProcessorResponse processPayment(
 			@WebParam(name = "PaymentProcessorRequest")
-					PaymentProcessorRequest paymentProcessorRequest);
+					PaymentProcessorRequest paymentProcessorRequest) throws ServiceException;
 }
