@@ -3,6 +3,7 @@ package com.cleverdeveloper.restful.service;
 import com.cleverdeveloper.restful.model.Patient;
 import org.springframework.stereotype.Service;
 
+import javax.ws.rs.core.Response;
 import java.util.*;
 
 /*
@@ -39,5 +40,13 @@ public class PatientServiceImpl implements PatientService {
     @Override
     public Patient getPatient(Long id) {
         return patients.get(id);
+    }
+
+    @Override
+    public Response createPatient(Patient patient) {
+        patient.setId(++currentId);
+        patients.put(patient.getId(), patient);
+
+        return Response.ok(patient).build();
     }
 }
