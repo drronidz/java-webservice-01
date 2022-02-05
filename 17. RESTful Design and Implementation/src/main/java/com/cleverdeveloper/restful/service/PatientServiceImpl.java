@@ -35,4 +35,9 @@ public class PatientServiceImpl implements PatientService {
         Collection<Patient> response = patients.values();
         return new ArrayList(response);
     }
+
+    @Override
+    public Patient getPatient(Long id) {
+        return patients.get(id);
+    }
 }
