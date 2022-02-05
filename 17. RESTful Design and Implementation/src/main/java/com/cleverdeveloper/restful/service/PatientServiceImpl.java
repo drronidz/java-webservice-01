@@ -63,4 +63,18 @@ public class PatientServiceImpl implements PatientService {
         }
         return response;
     }
+
+    @Override
+    public Response deletePatient(Long id) {
+        Patient patient = patients.get(id);
+        Response response;
+
+        if (patient != null) {
+            patients.remove(id);
+            response = Response.ok().build();
+        } else {
+            response = Response.notModified().build();
+        }
+        return response;
+    }
 }
