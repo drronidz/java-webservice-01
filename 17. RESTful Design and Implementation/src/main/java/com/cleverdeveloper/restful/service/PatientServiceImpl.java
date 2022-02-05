@@ -3,8 +3,7 @@ package com.cleverdeveloper.restful.service;
 import com.cleverdeveloper.restful.model.Patient;
 import org.springframework.stereotype.Service;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 /*
 PROJECT NAME : 17. RESTFul Design and Implementation
@@ -29,5 +28,11 @@ public class PatientServiceImpl implements PatientService {
 
         patients.put(patient.getId(), patient);
 
+    }
+
+    @Override
+    public List<Patient> getPatients() {
+        Collection<Patient> response = patients.values();
+        return new ArrayList(response);
     }
 }
