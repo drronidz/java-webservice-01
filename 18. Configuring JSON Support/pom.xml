@@ -23,17 +23,7 @@
         </dependency>
 
 
-        <dependency>
-            <groupId>org.apache.cxf</groupId>
-            <artifactId>cxf-spring-boot-starter-jaxrs</artifactId>
-            <version>3.5.0</version>
-        </dependency>
 
-        <dependency>
-            <groupId>org.codehaus.jackson</groupId>
-            <artifactId>jackson-jaxrs</artifactId>
-            <version>1.9.13</version>
-        </dependency>
 
 
         <dependency>
