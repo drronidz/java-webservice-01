@@ -1,0 +1,90 @@
+{
+	"info": {
+		"_postman_id": "5b90f231-7935-44ab-a87d-92b9a88495fd",
+		"name": "Java Web Services Part 1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "17. RESTFul Design and Implementation",
+			"item": [
+				{
+					"name": "GET all Patients",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/restws/services/patientservice/patients",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"restws",
+								"services",
+								"patientservice",
+								"patients"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET single Patient",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/restws/services/patientservice/patients/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"restws",
+								"services",
+								"patientservice",
+								"patients",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Patient",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n<Patient>\r\n     <name>Jake</name>\r\n</Patient>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/restws/services/patientservice/patients",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"restws",
+								"services",
+								"patientservice",
+								"patients"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
