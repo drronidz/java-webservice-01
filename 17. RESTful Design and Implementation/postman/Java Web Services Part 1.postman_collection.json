@@ -83,6 +83,15 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "Update Patient",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": null
+					},
+					"response": []
 				}
 			]
 		}
