@@ -1,5 +1,7 @@
 package com.cleverdeveloper.restful.service;
 
+
+import com.cleverdeveloper.restful.exceptions.PatientBusinessException;
 import com.cleverdeveloper.restful.model.Patient;
 import org.springframework.stereotype.Service;
 
@@ -65,7 +67,7 @@ public class PatientServiceImpl implements PatientService {
             patients.put(patient.getId(), patient);
             response = Response.ok(patient).build();
         } else {
-            response = Response.notModified().build();
+            throw new PatientBusinessException();
         }
         return response;
     }
