@@ -9,6 +9,7 @@ DATE : 06/02/2022 21:58
 
 import com.cleverdeveloper.restful.exceptions.PatientBusinessException;
 
+import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.ext.ExceptionMapper;
 import javax.ws.rs.ext.Provider;
@@ -19,6 +20,14 @@ public class PatientBusinessExceptionMapper implements ExceptionMapper<PatientBu
 
     @Override
     public Response toResponse(PatientBusinessException e) {
-        return Response.status(404).build();
+
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("{");
+        stringBuilder.append("\"status\":\"error\"");
+        stringBuilder.append(",");
+        stringBuilder.append("\"message\":\"Try Again Later\"");
+        stringBuilder.append("}");
+
+        return Response.serverError().entity(stringBuilder.toString()).type(MediaType.APPLICATION_JSON).build();
     }
 }
