@@ -34,6 +34,11 @@
             <version>3.5.0</version>
         </dependency>
 
+        <dependency>
+            <groupId>com.diogonunes</groupId>
+            <artifactId>JColor</artifactId>
+            <version>5.2.0</version>
+        </dependency>
     </dependencies>
 
     <build>
