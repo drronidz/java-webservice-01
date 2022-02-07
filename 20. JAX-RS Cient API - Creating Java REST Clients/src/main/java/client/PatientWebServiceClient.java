@@ -16,19 +16,22 @@ import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.Invocation.Builder;
 import javax.ws.rs.client.WebTarget;
-import javax.ws.rs.core.Response;
 
 import static com.diogonunes.jcolor.Ansi.colorize;
 import static com.diogonunes.jcolor.Attribute.*;
 
 public class PatientWebServiceClient {
 
+    public static final String PATIENT_SERVICE_URL = "http://localhost:8080/restws/services/patientservice";
+
     public static void main(String[] args) {
         Attribute backgroundColor = BACK_COLOR(39, 179, 118);
         Attribute textColor = TEXT_COLOR(0, 0, 0);
 
         Client client = ClientBuilder.newClient();
-        WebTarget target = client.target("http://localhost:8080/restws/services/patientservice/patients/1");
+        WebTarget target = client.target(PATIENT_SERVICE_URL).path("/patients").path("/{id}").resolveTemplate("id", 1);
+
+//        target.resolveTemplate("id", 1);
 
         Builder request = target.request();
 
