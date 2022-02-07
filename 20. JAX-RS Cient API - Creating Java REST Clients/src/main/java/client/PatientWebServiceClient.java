@@ -25,6 +25,7 @@ public class PatientWebServiceClient {
     public static final String PATIENT_SERVICE_URL = "http://localhost:8080/restws/services/patientservice";
     public static final Attribute backgroundColor = BACK_COLOR(39, 179, 118);
     public static final Attribute textColor = TEXT_COLOR(0, 0, 0);
+    public static final String PATIENTS = "/patients";
 
     public static void main(String[] args) {
 
@@ -34,10 +35,12 @@ public class PatientWebServiceClient {
 
         updateMethod(client, patient);
 
+        createMethod(client);
+
     }
 
     private static Patient getMethod(Client client) {
-        WebTarget getTarget = client.target(PATIENT_SERVICE_URL).path("/patients").path("/{id}").resolveTemplate("id", 1);
+        WebTarget getTarget = client.target(PATIENT_SERVICE_URL).path(PATIENTS).path("/{id}").resolveTemplate("id", 1);
 //        target.resolveTemplate("id", 1);
         Builder request = getTarget.request();
 //        Response response = request.get();
@@ -47,10 +50,21 @@ public class PatientWebServiceClient {
     }
 
     private static void updateMethod(Client client, Patient patient) {
-        // TODO Returning the updated patient when finishing
+        System.out.println(colorize(String.valueOf("Old Patient:" + patient), BOLD(), textColor, backgroundColor));
         patient.setName("NEW NAME");
-        WebTarget putTarget = client.target(PATIENT_SERVICE_URL).path("/patients");
-        Response updateResponse = putTarget.request().put(Entity.entity(patient, MediaType.APPLICATION_XML));
-        System.out.println(colorize(String.valueOf(updateResponse.getStatus()), BOLD(), textColor, backgroundColor));
+        WebTarget putTarget = client.target(PATIENT_SERVICE_URL).path(PATIENTS);
+//        Response updateResponse = putTarget.request().put(Entity.entity(patient, MediaType.APPLICATION_XML));
+        Patient updatedPatient = putTarget.request().put(Entity.entity(patient, MediaType.APPLICATION_XML), Patient.class);
+
+        System.out.println(colorize(String.valueOf("Updated Patient:" + updatedPatient), BOLD(), textColor, backgroundColor));
+    }
+
+    private static void createMethod(Client client) {
+        Patient newPatient = new Patient();
+        newPatient.setName("James");
+        WebTarget postTarget = client.target(PATIENT_SERVICE_URL).path(PATIENTS);
+        Patient createdPatient = postTarget.request().post(Entity.entity(newPatient, MediaType.APPLICATION_XML),Patient.class);
+
+        System.out.println(colorize("Created Patient:" + createdPatient, BOLD(), textColor, backgroundColor));
     }
 }
