@@ -53,10 +53,11 @@ public class PatientWebServiceClient {
         System.out.println(colorize(String.valueOf("Old Patient:" + patient), BOLD(), textColor, backgroundColor));
         patient.setName("NEW NAME");
         WebTarget putTarget = client.target(PATIENT_SERVICE_URL).path(PATIENTS);
-//        Response updateResponse = putTarget.request().put(Entity.entity(patient, MediaType.APPLICATION_XML));
-        Patient updatedPatient = putTarget.request().put(Entity.entity(patient, MediaType.APPLICATION_XML), Patient.class);
+        Response updateResponse = putTarget.request().put(Entity.entity(patient, MediaType.APPLICATION_XML));
+//        Patient updatedPatient = putTarget.request().put(Entity.entity(patient, MediaType.APPLICATION_XML), Patient.class);
 
-        System.out.println(colorize(String.valueOf("Updated Patient:" + updatedPatient), BOLD(), textColor, backgroundColor));
+        System.out.println(colorize(String.valueOf("Updated ?" + updateResponse.getStatus()), BOLD(), textColor, backgroundColor));
+        updateResponse.close();
     }
 
     private static void createMethod(Client client) {
@@ -66,5 +67,7 @@ public class PatientWebServiceClient {
         Patient createdPatient = postTarget.request().post(Entity.entity(newPatient, MediaType.APPLICATION_XML),Patient.class);
 
         System.out.println(colorize("Created Patient:" + createdPatient, BOLD(), textColor, backgroundColor));
+
+        client.close();
     }
 }
