@@ -37,6 +37,16 @@ public class PatientWebServiceClient {
 
         createMethod(client);
 
+        deleteMethod(client);
+
+        client.close();
+    }
+
+    private static void deleteMethod(Client client) {
+        WebTarget deleteTarget = client.target(PATIENT_SERVICE_URL).path(PATIENTS).path("/{id}").resolveTemplate("id", 1);
+        Builder request = deleteTarget.request();
+        Response response = request.delete();
+        System.out.println(colorize("Is deleted ?" + response.getStatus(), BOLD(), textColor, backgroundColor));
     }
 
     private static Patient getMethod(Client client) {
@@ -67,7 +77,5 @@ public class PatientWebServiceClient {
         Patient createdPatient = postTarget.request().post(Entity.entity(newPatient, MediaType.APPLICATION_XML),Patient.class);
 
         System.out.println(colorize("Created Patient:" + createdPatient, BOLD(), textColor, backgroundColor));
-
-        client.close();
     }
 }
