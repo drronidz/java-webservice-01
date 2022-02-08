@@ -14,7 +14,7 @@ import java.util.List;
 
 @Path("/passengerservice")
 @Produces("application/xml")
-@Consumes("application/xml")
+@Consumes("application/xml,application/x-www-form-urlencoded")
 public interface PassengerService {
 
     @Path("/passengers")
@@ -23,5 +23,7 @@ public interface PassengerService {
 
     @Path("/passengers")
     @POST
-    Passenger addPassenger(Passenger passenger);
+    void addPassenger(@FormParam("firstName") String firstName, @FormParam("lastName") String lastName);
+
+
 }
