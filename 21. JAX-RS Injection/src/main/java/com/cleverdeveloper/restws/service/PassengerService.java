@@ -19,7 +19,7 @@ public interface PassengerService {
 
     @Path("/passengers")
     @GET
-    List<Passenger> getPassengers();
+    List<Passenger> getPassengers(@QueryParam("start") int start, @QueryParam("size") int size);
 
     @Path("/passengers")
     @POST
