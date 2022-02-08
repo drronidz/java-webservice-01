@@ -65,7 +65,6 @@ public class PatientWebServiceClient {
         WebTarget putTarget = client.target(PATIENT_SERVICE_URL).path(PATIENTS);
         Response updateResponse = putTarget.request().put(Entity.entity(patient, MediaType.APPLICATION_XML));
 //        Patient updatedPatient = putTarget.request().put(Entity.entity(patient, MediaType.APPLICATION_XML), Patient.class);
-
         System.out.println(colorize(String.valueOf("Updated ?" + updateResponse.getStatus()), BOLD(), textColor, backgroundColor));
         updateResponse.close();
     }
@@ -75,7 +74,6 @@ public class PatientWebServiceClient {
         newPatient.setName("James");
         WebTarget postTarget = client.target(PATIENT_SERVICE_URL).path(PATIENTS);
         Patient createdPatient = postTarget.request().post(Entity.entity(newPatient, MediaType.APPLICATION_XML),Patient.class);
-
         System.out.println(colorize("Created Patient:" + createdPatient, BOLD(), textColor, backgroundColor));
     }
 }
