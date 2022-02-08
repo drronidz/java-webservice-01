@@ -11,10 +11,12 @@ import com.cleverdeveloper.restws.model.Passenger;
 import com.diogonunes.jcolor.Attribute;
 import org.springframework.stereotype.Service;
 
+import javax.ws.rs.core.Cookie;
 import javax.ws.rs.core.HttpHeaders;
 import javax.ws.rs.core.MultivaluedMap;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import static com.diogonunes.jcolor.Ansi.colorize;
@@ -28,6 +30,7 @@ public class PassengerServiceImpl implements PassengerService {
 
     Attribute bgOne = BACK_COLOR(39, 179, 118);
     Attribute bgTwo = BACK_COLOR(39, 50, 118);
+    Attribute bgThree = BACK_COLOR(39, 255, 118);
     Attribute textColor = TEXT_COLOR(0, 0, 0);
 
 
@@ -52,6 +55,14 @@ public class PassengerServiceImpl implements PassengerService {
 
         for (String key: headersKeys) {
             System.out.println(colorize(key + " : " + headers.getHeaderString(key), BOLD(), textColor, bgTwo));
+        }
+
+        Map<String, Cookie> cookies = headers.getCookies();
+        Set<String> cookieKeys = cookies.keySet();
+
+        for (String cookieKey: cookieKeys) {
+            System.out.println("--------------- Cookies ---------------");
+            System.out.println(colorize(cookieKey + " : " + cookies.get(cookieKey).getValue(), BOLD(), textColor, bgThree));
         }
     }
 }
