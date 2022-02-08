@@ -10,6 +10,8 @@ DATE : 08/02/2022 19:16
 import com.cleverdeveloper.restws.model.Passenger;
 
 import javax.ws.rs.*;
+import javax.ws.rs.core.Context;
+import javax.ws.rs.core.HttpHeaders;
 import java.util.List;
 
 @Path("/passengerservice")
@@ -25,6 +27,7 @@ public interface PassengerService {
     @POST
     void addPassenger(@FormParam("firstName") String firstName,
                       @FormParam("lastName") String lastName,
+                      @Context HttpHeaders headers,
                       @HeaderParam("agent") String agent);
 
 

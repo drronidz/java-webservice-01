@@ -8,16 +8,27 @@ DATE : 08/02/2022 19:17
 */
 
 import com.cleverdeveloper.restws.model.Passenger;
+import com.diogonunes.jcolor.Attribute;
 import org.springframework.stereotype.Service;
 
+import javax.ws.rs.core.HttpHeaders;
+import javax.ws.rs.core.MultivaluedMap;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
+
+import static com.diogonunes.jcolor.Ansi.colorize;
+import static com.diogonunes.jcolor.Attribute.*;
 
 @Service
 public class PassengerServiceImpl implements PassengerService {
 
     List<Passenger> passengers = new ArrayList<>();
     int currentId = 0;
+
+    Attribute bgOne = BACK_COLOR(39, 179, 118);
+    Attribute bgTwo = BACK_COLOR(39, 50, 118);
+    Attribute textColor = TEXT_COLOR(0, 0, 0);
 
 
     /*
@@ -33,7 +44,14 @@ public class PassengerServiceImpl implements PassengerService {
     }
 
     @Override
-    public void addPassenger(String firstName, String lastName, String agent) {
-        System.out.println(firstName + " " + lastName + " for agent : " + agent);
+    public void addPassenger(String firstName, String lastName, HttpHeaders headers, String agent) {
+        System.out.println(colorize(firstName + " " + lastName + " for agent : " + agent, BOLD(), textColor, bgOne));
+
+        MultivaluedMap<String, String> allHeaders = headers.getRequestHeaders();
+        Set<String> headersKeys = allHeaders.keySet();
+
+        for (String key: headersKeys) {
+            System.out.println(colorize(key + " : " + headers.getHeaderString(key), BOLD(), textColor, bgTwo));
+        }
     }
 }
