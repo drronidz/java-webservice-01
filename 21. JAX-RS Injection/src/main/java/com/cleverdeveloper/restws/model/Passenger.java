@@ -7,6 +7,9 @@ Author Name : @ DRRONIDZ
 DATE : 08/02/2022 19:15
 */
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement(name = "passenger")
 public class Passenger {
     private int id;
     private String name;

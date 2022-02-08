@@ -9,11 +9,19 @@ DATE : 08/02/2022 19:16
 
 import com.cleverdeveloper.restws.model.Passenger;
 
+import javax.ws.rs.*;
 import java.util.List;
 
+@Path("/passengerservice")
+@Produces("application/xml")
+@Consumes("application/xml")
 public interface PassengerService {
 
+    @Path("/passengers")
+    @GET
     List<Passenger> getPassengers();
 
-    Passenger addPassenger();
+    @Path("/passengers")
+    @POST
+    Passenger addPassenger(Passenger passenger);
 }

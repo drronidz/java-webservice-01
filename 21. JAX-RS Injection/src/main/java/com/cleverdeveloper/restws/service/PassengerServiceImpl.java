@@ -8,18 +8,26 @@ DATE : 08/02/2022 19:17
 */
 
 import com.cleverdeveloper.restws.model.Passenger;
+import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class PassengerServiceImpl implements PassengerService{
+@Service
+public class PassengerServiceImpl implements PassengerService {
+
+    List<Passenger> passengers = new ArrayList<>();
+    int currentId = 0;
 
     @Override
     public List<Passenger> getPassengers() {
-        return null;
+        return passengers;
     }
 
     @Override
-    public Passenger addPassenger() {
-        return null;
+    public Passenger addPassenger(Passenger passenger) {
+        passenger.setId(++currentId);
+        passengers.add(passenger);
+        return passenger;
     }
 }
