@@ -22,8 +22,8 @@ import static com.diogonunes.jcolor.Attribute.*;
 public class CustomerOrderWebServiceClient {
     public static void main(String[] args) throws MalformedURLException {
         // Coloring outputs
-        Attribute backgroundColor = BACK_COLOR(39, 179, 118);
-        Attribute textColor = TEXT_COLOR(0, 0, 0);
+            Attribute backgroundColor = BACK_COLOR(39, 179, 118);
+            Attribute textColor = TEXT_COLOR(0, 0, 0);
 
         CustomerOrdersWebServiceImplService service = new CustomerOrdersWebServiceImplService(new URL("http://localhost:8080/wsdlfirstwebservice/customerordersservice?wsdl"));
         CustomerOrdersPortType customerOrdersPortType = service.getCustomerOrdersWebServiceImplPort();
