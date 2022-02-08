@@ -23,7 +23,9 @@ public interface PassengerService {
 
     @Path("/passengers")
     @POST
-    void addPassenger(@FormParam("firstName") String firstName, @FormParam("lastName") String lastName);
+    void addPassenger(@FormParam("firstName") String firstName,
+                      @FormParam("lastName") String lastName,
+                      @HeaderParam("agent") String agent);
 
 
 }

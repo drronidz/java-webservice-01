@@ -33,7 +33,7 @@ public class PassengerServiceImpl implements PassengerService {
     }
 
     @Override
-    public void addPassenger(String firstName, String lastName) {
-        System.out.println(firstName + " " + lastName);
+    public void addPassenger(String firstName, String lastName, String agent) {
+        System.out.println(firstName + " " + lastName + " for agent : " + agent);
     }
 }
