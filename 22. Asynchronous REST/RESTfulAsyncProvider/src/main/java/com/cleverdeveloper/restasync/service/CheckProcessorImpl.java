@@ -9,9 +9,13 @@ DATE : 09/02/2022 18:54
 
 import com.cleverdeveloper.restasync.model.CheckList;
 
+import javax.ws.rs.container.AsyncResponse;
+
 public class CheckProcessorImpl implements CheckProcessor{
+
     @Override
-    public Boolean processChecks(CheckList checkList) {
-        return null;
+    public void processChecks(AsyncResponse asyncResponse, CheckList checkList) {
+        // Business Logic is here ...
+        asyncResponse.resume(true);
     }
 }

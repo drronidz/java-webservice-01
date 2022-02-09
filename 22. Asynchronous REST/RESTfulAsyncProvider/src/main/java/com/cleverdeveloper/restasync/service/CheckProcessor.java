@@ -11,11 +11,13 @@ import com.cleverdeveloper.restasync.model.CheckList;
 
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
+import javax.ws.rs.container.AsyncResponse;
+import javax.ws.rs.container.Suspended;
 
 @Path("/checkprocessingservice")
 public interface CheckProcessor {
 
     @POST
     @Path("/checklist")
-    public Boolean processChecks(CheckList checkList);
+    public void processChecks(@Suspended AsyncResponse asyncResponse, CheckList checkList);
 }
