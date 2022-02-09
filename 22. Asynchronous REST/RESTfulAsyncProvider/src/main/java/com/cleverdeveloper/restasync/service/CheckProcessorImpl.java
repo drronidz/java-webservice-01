@@ -16,6 +16,11 @@ public class CheckProcessorImpl implements CheckProcessor{
     @Override
     public void processChecks(AsyncResponse asyncResponse, CheckList checkList) {
         // Business Logic is here ...
-        asyncResponse.resume(true);
+        new Thread() {
+            public void run() {
+                asyncResponse.resume(true);
+            }
+        }.start();
+
     }
 }
