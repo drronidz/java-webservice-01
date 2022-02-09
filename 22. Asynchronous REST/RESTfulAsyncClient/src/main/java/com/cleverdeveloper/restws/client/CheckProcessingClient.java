@@ -28,7 +28,7 @@ public class CheckProcessingClient {
 
         Client client = ClientBuilder.newClient();
 
-        WebTarget target = client.target("http://localhost:8080/restsasync/services/checkprocessingservice/checklist");
+        WebTarget target = client.target("http://localhost:8080/restwsasync/services/checkprocessingservice/checklist");
         AsyncInvoker invoker = target.request().async();
 
         Future<Boolean> response = invoker.post(Entity.entity(new CheckList(), MediaType.APPLICATION_XML), Boolean.class);

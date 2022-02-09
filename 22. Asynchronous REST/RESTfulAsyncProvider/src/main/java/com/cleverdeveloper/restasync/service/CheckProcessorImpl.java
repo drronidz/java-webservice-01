@@ -8,9 +8,11 @@ DATE : 09/02/2022 18:54
 */
 
 import com.cleverdeveloper.restasync.model.CheckList;
+import org.springframework.stereotype.Service;
 
 import javax.ws.rs.container.AsyncResponse;
 
+@Service
 public class CheckProcessorImpl implements CheckProcessor{
 
     @Override
