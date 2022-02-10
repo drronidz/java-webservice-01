@@ -9,16 +9,29 @@ DATE : 10/02/2022 22:14
 
 import com.cleverdeveloper.springsecurity.model.Product;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ProductServiceImpl implements ProductService{
+    private List<Product> products = new ArrayList<>();
+    private long id = 0;
+
+    public ProductServiceImpl() {
+        Product product = new Product();
+        product.setId(++id);
+        product.setDescription("Angular 6 Crash Course");
+        products.add(product);
+    }
+
     @Override
     public List<Product> getProducts() {
-        return null;
+        return products;
     }
 
     @Override
     public Product addProduct(Product product) {
-        return null;
+        product.setId(++id);
+        products.add(product);
+        return product;
     }
 }
