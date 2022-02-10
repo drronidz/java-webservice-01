@@ -7,6 +7,9 @@ Author Name : @ DRRONIDZ
 DATE : 10/02/2022 22:11
 */
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement(name="product")
 public class Product {
 
     private long id;

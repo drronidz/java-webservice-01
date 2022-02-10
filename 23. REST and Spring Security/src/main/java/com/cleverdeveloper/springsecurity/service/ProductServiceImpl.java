@@ -8,10 +8,12 @@ DATE : 10/02/2022 22:14
 */
 
 import com.cleverdeveloper.springsecurity.model.Product;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Service
 public class ProductServiceImpl implements ProductService{
     private List<Product> products = new ArrayList<>();
     private long id = 0;
