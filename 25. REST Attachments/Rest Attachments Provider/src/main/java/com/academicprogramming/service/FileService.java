@@ -22,6 +22,7 @@ public class FileService {
 	@Path("/upload")
 	@POST
 	public void upload(List<Attachment> attachments) throws IOException {
+		System.out.println("======================== Inside Upload ========================");
 		for (Attachment attachment: attachments) {
 			copyFile(attachment.getDataHandler().getInputStream());
 		}
