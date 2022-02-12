@@ -3,6 +3,7 @@ package com.academicprogramming.service;
 import org.apache.cxf.jaxrs.ext.multipart.Attachment;
 import org.springframework.stereotype.Service;
 
+import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.core.Response;
@@ -29,6 +30,8 @@ public class FileService {
 		}
 	}
 
+	@Path("/download")
+	@GET
 	public Response download() {
 		File file = new File(FILE_PATH);
 		Response.ResponseBuilder responseBuilder = Response.ok(file);
