@@ -21,7 +21,7 @@ public class FileClient {
 
         WebClient client = WebClient.create("http://localhost:8080/restattachments/services/fileService/upload");
         client.type("multipart/form-data");
-        ContentDisposition contentDisposition = new ContentDisposition("attachment;filename=MAVEN.PNG");
+        ContentDisposition contentDisposition = new ContentDisposition("attachement;filename=2.png");
 
         Attachment attachment = new Attachment("root", new FileInputStream(new File("C:\\Users\\DRRONIDZ\\IdeaProjects\\Java Vanilla\\java-webservice-01\\25. REST Attachments\\docs\\images\\2.png")), contentDisposition);
         client.post(attachment);
