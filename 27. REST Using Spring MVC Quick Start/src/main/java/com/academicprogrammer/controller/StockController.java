@@ -20,4 +20,12 @@ public class StockController {
     public String sayHello(@PathVariable String name) {
         return "Hello " + name + " to the RESTful Spring World";
     }
+
+    @RequestMapping(value = "/stockQuote/{firmName}", method = RequestMethod.GET)
+    public StockQuoteResponse getStockQuote(@PathVariable String firmName) {
+        StockQuoteResponse response = new StockQuoteResponse();
+        response.setFirmName(firmName);
+        response.setStockValue(1000);
+        return  response;
+    }
 }
