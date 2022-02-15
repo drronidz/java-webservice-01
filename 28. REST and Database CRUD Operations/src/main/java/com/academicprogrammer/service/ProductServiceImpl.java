@@ -8,30 +8,36 @@ DATE : 15/02/2022 14:19
 */
 
 import com.academicprogrammer.model.Product;
+import com.academicprogrammer.repository.ProductRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.ws.rs.core.Response;
 import java.util.List;
 
 public class ProductServiceImpl implements ProductService{
 
+    @Autowired
+    ProductRepository productRepository;
 
     @Override
     public List<Product> getProducts() {
-        return null;
+        return productRepository.findAll();
     }
 
     @Override
     public Product getProduct(int id) {
-        return null;
+        return productRepository.findById(id).get();
     }
 
     @Override
     public Response createProduct(Product product) {
-        return null;
+        Product savedProduct = productRepository.save(product);
+        return Response.ok(savedProduct).build();
     }
 
     @Override
     public Response updateProduct(Product product) {
-        return null;
+        Product savedProduct = productRepository.save(product);
+        return Response.ok(savedProduct).build();
     }
 }
