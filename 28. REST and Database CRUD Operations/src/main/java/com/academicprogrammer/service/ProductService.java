@@ -34,5 +34,9 @@ public interface ProductService {
     @PUT
     Response updateProduct(Product product);
 
+    @Path("/delete/{id}")
+    @DELETE
+    Response deleteProductById(@PathParam("id") int id);
+
 
 }

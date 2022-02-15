@@ -40,4 +40,10 @@ public class ProductServiceImpl implements ProductService{
         Product savedProduct = productRepository.save(product);
         return Response.ok(savedProduct).build();
     }
+
+    @Override
+    public Response deleteProductById(int id) {
+        productRepository.deleteById(id);
+        return Response.ok().build();
+    }
 }
