@@ -72,13 +72,13 @@
 
     <wsdl:portType name="CustomerOrdersPortType">
         <wsdl:operation name="getOrders">
-            <wsdl:input message="tns:getOrdersRequest"/>
-            <wsdl:output message="tns:getOrdersResponse"/>
+            <wsdl:input message="tns:getOrdersRequest" name="getOrdersRequest"/>
+            <wsdl:output message="tns:getOrdersResponse" name="getOrdersResponse"/>
         </wsdl:operation>
 
         <wsdl:operation name="createOrders">
-            <wsdl:input message="tns:createOrdersRequest"/>
-            <wsdl:output message="tns:createOrdersResponse"/>
+            <wsdl:input message="tns:createOrdersRequest" name="createOrdersRequest"/>
+            <wsdl:output message="tns:createOrdersResponse" name="createOrdersResponse"/>
         </wsdl:operation>
     </wsdl:portType>
     
