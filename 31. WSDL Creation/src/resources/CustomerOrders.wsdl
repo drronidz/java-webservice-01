@@ -53,4 +53,21 @@
 
         </xsd:schema>
     </wsdl:types>
+
+    <wsdl:message name="getOrdersRequest">
+        <wsdl:part name="parameters" element="tns:getOrdersRequest"/>
+    </wsdl:message>
+
+    <wsdl:message name="getOrdersResponse">
+        <wsdl:part name="parameters" element="tns:getOrdersResponse"/>
+    </wsdl:message>
+
+    <wsdl:message name="createOrdersRequest">
+        <wsdl:part name="parameters" element="tns:createOrdersRequest"/>
+    </wsdl:message>
+
+    <wsdl:message name="createOrdersResponse">
+        <wsdl:part name="parameters" element="tns:createOrdersResponse"/>
+    </wsdl:message>
+
 </wsdl:definitions>
