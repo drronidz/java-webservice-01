@@ -70,4 +70,17 @@
         <wsdl:part name="parameters" element="tns:createOrdersResponse"/>
     </wsdl:message>
 
+    <wsdl:portType name="CustomerOrders">
+
+        <wsdl:operation name="getOrders">
+            <wsdl:input message="tns:getOrdersRequest"/>
+            <wsdl:output message="tns:getOrdersResponse"/>
+        </wsdl:operation>
+
+        <wsdl:operation name="createOrders">
+            <wsdl:input message="tns:createOrdersRequest"/>
+            <wsdl:output message="tns:createOrdersResponse"/>
+        </wsdl:operation>
+    </wsdl:portType>
+
 </wsdl:definitions>
